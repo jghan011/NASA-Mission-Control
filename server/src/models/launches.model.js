@@ -1,7 +1,10 @@
+//const launches = require("./launches.mongo");
+
 const launches = new Map();
 
 function existsLaunchWithId(launchId) {
-  return launches.has(launchId); //flight number
+  return launches.has(launchId); // launchid = flight number
+  //this function takes a launchID as an argument and returns a boolean indicating if the launch with the ID exist in launches Map
 }
 
 let latestFlightNumber = 100; //equall to last fligh no. scehduled
@@ -11,17 +14,23 @@ const launch = {
   rocket: "Explorer IS1",
   launchDate: new Date("December 27, 2030"),
   target: "Kepler-442 b",
-  customer: ["ZTM", "NASA"],
+  customers: ["ZTM", "NASA"],
   upcoming: true,
   success: true,
 };
 
-launches.set(launch.flightNumber, launch);
+launches.set(launch.flightNumber, launch); //each flightnumber will be the id for eascha launch
 
 function getAllLaunches() {
+  // returns all the launches stored in the launches map
   return Array.from(launches.values());
 } //will itterate
 
+//The addNewLaunch function takes a launch object as an argument, generates a new flightNumber by incrementing latestFlightNumber,
+//and adds the launch to the launches Map with the new flightNumber.
+//The addNewLaunch function also assigns additional properties to the launch object such as success, upcoming, customers, and flightNumber
+//
+//
 function addNewLaunch(launch) {
   latestFlightNumber++;
   launches.set(
