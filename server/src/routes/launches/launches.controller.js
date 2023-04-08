@@ -20,7 +20,6 @@ function httpAddNewLaunch(req, res) {
     !launch.target
   ) {
     return res.status(400).json({
-      //isNan =not a number
       error: "missing required launch property",
     });
   }

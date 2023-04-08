@@ -1,14 +1,16 @@
 const http = require("http");
 const mongoose = require("mongoose");
+require("dotenv").config(); //require dotenv package
 const app = require("./app");
 
 const { loadPlanetsData } = require("./models/planets.model");
 const { error } = require("console");
+const { env } = require("process");
 
 const PORT = process.env.PORT || 8000; //different port than front end to avoid conflict
 //previous port above was 8000 but conflicted with mongodb port so i switched to 7000
-const MONGO_URL =
-  "mongodb+srv://nasa-api:foOw9amiD19HEbH8@nasacluster.6gboity.mongodb.net/nasa?retryWrites=true&w=majority";
+
+const MONGO_URL = process.env.MONGO_KEY;
 
 const server = http.createServer(app); //takes app as n argument that request listener functon that resopnsde
 

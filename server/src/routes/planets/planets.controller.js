@@ -3,7 +3,7 @@ const { getAllPlanets } = require("../../models/planets.model");
 // with the promise we made planet.model.js it changews everything cuzz everything has to finsh before the model is exported
 async function httpGetAllPlanets(req, res) {
   return res.status(200).json(await getAllPlanets());
-  //return is usually where function stpops executing
+  //return is usually where function stops executing
 }
 
 module.exports = {
